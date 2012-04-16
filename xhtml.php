@@ -44,9 +44,9 @@ class plgSystemXHTML extends JPlugin
 	*/
 	function onAfterDispatch()
 	{
-		global $mainframe;
+		$app = JFactory::getApplication();
 		$xhtml_admin = $this->params->get('xhtml_admin', 0);
-		if ($mainframe->isAdmin() && $xhtml_admin == 0) {
+		if ($app->isAdmin() && $xhtml_admin == 0) {
 			return; // Don't run in admin
 		}
 
