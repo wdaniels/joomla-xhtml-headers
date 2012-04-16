@@ -42,7 +42,7 @@ class plgSystemXHTML extends JPlugin
 	* @todo Add the document prolog if asked to.
 	* @todo Maybe fix the rendered document for xhtml compatibility?
 	*/
-	function onAfterRender()
+	function onAfterDispatch()
 	{
 		global $mainframe;
 		$xhtml_admin = $this->params->get('xhtml_admin', 0);
@@ -58,8 +58,9 @@ class plgSystemXHTML extends JPlugin
 
 		if($browser_accepts)
 		{
-			JResponse::setHeader('Content-Type', "$xhtml;charset=$charset", true);
-			//header("Vary: Accept");
+			$doc = JFactory::getDocument();
+			$doc->setMimeEncoding($xhtml);
+			$doc->setCharset($charset);
 		}
 	
 		return true;
