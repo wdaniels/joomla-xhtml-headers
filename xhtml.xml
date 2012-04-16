@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<install version="1.5" type="plugin" group="system">
+    <name>System - XHTML Headers</name>
+    <author>Will Daniels</author>
+    <creationDate>April 2008</creationDate>
+    <copyright>(C) 2008 Will Daniels. All rights reserved.</copyright>
+    <license>GNU/GPL</license>
+    <authorEmail>mail@willdaniels.co.uk</authorEmail>
+    <authorUrl>http://www.willdaniels.co.uk</authorUrl>
+    <version>0.1</version>
+    <description>Checks HTTP_ACCEPT and serves documents with the XHTML MIME type where applicable.</description>
+    <files>
+        <filename plugin="xhtml">xhtml.php</filename>
+    </files>
+    <params>
+    		<param name="xhtml_admin" type="radio" default="0" label="XHTML Admin" description="If yes, will attempt to serve the Joomla! Administrator pages as XHTML (as at 1.5.3 results in javascript problems).">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</param>
+        <param name="xhtml_mime_type" type="text" size="40" default="application/xhtml+xml" label="XHTML MIME Type" description="The Content-Type header to send for XHTML."/>        
+        <param name="charset" type="text" size="10" default="utf-8" label="Character Set" description="The character set (UTF-8 should work fine with joomla! but PHP and MySQL use iso-8859-1 normally)"/>
+    </params>
+</install>
