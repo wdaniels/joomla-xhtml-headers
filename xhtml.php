@@ -53,16 +53,15 @@ class plgSystemXHTML extends JPlugin
 		$xhtml = $this->params->get('xhtml_mime_type', 'application/xhtml+xml');
 		$html = $this->params->get('html_mime_type', 'text/html');
 		$charset = $this->params->get('charset', 'iso-8859-1');
-		
-		if(stristr($_SERVER['HTTP_ACCEPT'], $xhtml)) $browser_accepts = true;
+		$browser_accepts = (stripos($_SERVER['HTTP_ACCEPT'], $xhtml) > 0);
 
-		if($browser_accepts)
+		if ($browser_accepts)
 		{
 			$doc = JFactory::getDocument();
 			$doc->setMimeEncoding($xhtml);
 			$doc->setCharset($charset);
 		}
-	
+
 		return true;
 	}
 }
